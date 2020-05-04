@@ -16,7 +16,7 @@ const Cart = ({ products, removeFromCartInjected }) => {
   return (
     <Layout>
       <div
-        className="cart-page content-min-height container-fluid container-min-max-width
+        className="cart-page container-fluid container-min-max-width
                 d-flex flex-column justify-content-center align-items-center"
       >
         {products.length ? (

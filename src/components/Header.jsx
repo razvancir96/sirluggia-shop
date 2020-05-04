@@ -29,7 +29,7 @@ const Header = ({ user, signOut, numberOfProducts }) => (
               Delogare
             </button>
           ) : (
-            <Link to="/login" className="text-dark h5 mb-0">
+            <Link to="/login" className="h5 mb-0">
               Logare
             </Link>
           )}
@@ -39,7 +39,7 @@ const Header = ({ user, signOut, numberOfProducts }) => (
           >
             <Link to="/cart" className="d-flex">
               <ShoppingCart className="ml-2" />
-              <p className="ml-1 mb-0 text-dark">{numberOfProducts}</p>
+              <p className="ml-1 mb-0">{numberOfProducts}</p>
             </Link>
           </div>
         </div>

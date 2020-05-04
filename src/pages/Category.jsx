@@ -37,7 +37,7 @@ class Category extends Component {
 
     return (
       <Layout>
-        <div className="content-min-height container-fluid container-min-max-width">
+        <div className="container-fluid container-min-max-width">
           <h2>{category.name}</h2>
           <div className="row">
             <ProductListSidebar

@@ -11,7 +11,7 @@ const ProductItem = (props) => {
     <div className="product-item col-12 col-md-4 mb-3 d-flex flex-column align-items-center">
       <Link
         to={`/product/${id}`}
-        className="text-dark d-flex flex-column align-items-center"
+        className="d-flex flex-column align-items-center"
       >
         <img src={image} alt={name} className="mb-2" />
         <p className="mb-1 text-center">{name}</p>
