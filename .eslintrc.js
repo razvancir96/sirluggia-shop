@@ -22,6 +22,11 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        // TODO: add prop types in teh future
+        "react/prop-types": 0,
+        // TODO: remove this when adding prettier
+        "max-len": ["error", { code: 1000 }]
     }
 };
