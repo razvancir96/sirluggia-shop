@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Layout from '../components/Layout';
-import products from '../utils/products.json';
-import './Product.css';
-import { addToCart } from '../redux/actions/cart';
+import React from "react";
+import { connect } from "react-redux";
+import Layout from "../components/Layout";
+import products from "../utils/products.json";
+import "./Product.css";
+import { addToCart } from "../redux/actions/cart";
 
 class Product extends React.Component {
   constructor() {
@@ -17,11 +17,13 @@ class Product extends React.Component {
     const { match } = this.props;
     const { productId } = match.params;
     const categoryValues = Object.values(products);
-    const productItems = categoryValues.reduce((acc, category) => [
-      ...acc,
-      ...category.items,
-    ], []);
-    const currentProduct = productItems.find((product) => Number(productId) === product.id);
+    const productItems = categoryValues.reduce(
+      (acc, category) => [...acc, ...category.items],
+      []
+    );
+    const currentProduct = productItems.find(
+      (product) => Number(productId) === product.id
+    );
     this.setState({ product: currentProduct });
   }
 
@@ -39,9 +41,7 @@ class Product extends React.Component {
             </div>
             <div className="product-details">
               <p className="h3 text-danger">
-                {product.price}
-                {' '}
-                {product.currency}
+                {product.price} {product.currency}
               </p>
               <button
                 type="button"
@@ -61,28 +61,18 @@ class Product extends React.Component {
                 Adaugă în coș
               </button>
               <p>
-                <span className="font-weight-bold">Mărime</span>
-                :
-                {' '}
-                {product.size}
+                <span className="font-weight-bold">Mărime</span>:{product.size}
               </p>
               <p>
-                <span className="font-weight-bold">Culoare</span>
-                :
-                {' '}
+                <span className="font-weight-bold">Culoare</span>:{" "}
                 {product.colour}
               </p>
               <p>
-                <span className="font-weight-bold">Material</span>
-                :
-                {' '}
+                <span className="font-weight-bold">Material</span>:{" "}
                 {product.material}
               </p>
               <p>
-                <span className="font-weight-bold">Brand</span>
-                :
-                {' '}
-                {product.brand}
+                <span className="font-weight-bold">Brand</span>:{product.brand}
               </p>
               <p className="font-weight-bold mb-1">Descriere:</p>
               <p>{product.description}</p>

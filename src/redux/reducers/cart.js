@@ -4,7 +4,7 @@ const initialState = {
 
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_TO_CART': {
+    case "ADD_TO_CART": {
       let productInCart = false;
       const updatedProducts = state.products.map((product) => {
         if (product.id === action.payload.product.id) {
@@ -31,8 +31,10 @@ export default function cartReducer(state = initialState, action) {
       }
       return { ...state, products: updatedProducts };
     }
-    case 'REMOVE_FROM_CART': {
-      const filteredProducts = state.products.filter((product) => product.id !== action.payload.id);
+    case "REMOVE_FROM_CART": {
+      const filteredProducts = state.products.filter(
+        (product) => product.id !== action.payload.id
+      );
 
       return { ...state, products: filteredProducts };
     }

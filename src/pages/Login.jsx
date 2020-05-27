@@ -1,17 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import Logo from '../assets/images/logo.png';
-import { ReactComponent as Google } from '../assets/icons/google.svg';
-import './Login.css';
-import { loginUser } from '../redux/actions/user';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import Logo from "../assets/images/logo.png";
+import { ReactComponent as Google } from "../assets/icons/google.svg";
+import "./Login.css";
+import { loginUser } from "../redux/actions/user";
 
 class Login extends React.Component {
   componentDidUpdate(prevProps) {
     const { user, history } = this.props;
 
     if (user !== prevProps.user) {
-      history.push('/');
+      history.push("/");
     }
   }
 

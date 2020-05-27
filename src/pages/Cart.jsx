@@ -1,78 +1,83 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Layout from '../components/Layout';
-import { removeFromCart } from '../redux/actions/cart';
-import './Cart.css';
-import { ReactComponent as Close } from '../assets/icons/close.svg';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
+import { removeFromCart } from "../redux/actions/cart";
+import "./Cart.css";
+import { ReactComponent as Close } from "../assets/icons/close.svg";
 
 const Cart = ({ products, removeFromCartInjected }) => {
-  const totalSum = (productList) => productList.reduce((acc, product) => acc + product.quantity * product.price, 0);
+  const totalSum = (productList) =>
+    productList.reduce(
+      (acc, product) => acc + product.quantity * product.price,
+      0
+    );
 
   return (
     <Layout>
-      <div className="cart-page content-min-height container-fluid container-min-max-width
+      <div
+        className="cart-page content-min-height container-fluid container-min-max-width
                 d-flex flex-column justify-content-center align-items-center"
       >
-        {
-                    products.length
-                      ? (
-                        <div className="w-100">
-                          <div className="d-flex justify-content-between text-center h4 text-bold">
-                            <p className="w-25">Produs</p>
-                            <p className="w-25">Pret</p>
-                            <p className="w-25">Cantitate</p>
-                            <p className="w-25">Total</p>
-                          </div>
-                          {
-                            products.map((product) => (
-                              <div className="d-flex justify-content-between align-items-center text-center" key={product.id}>
-                                <div className="w-25 d-flex flex-column justify-content-center align-items-center">
-                                  <img src={product.image} alt="Produs" />
-                                  <p>{ product.name }</p>
-                                </div>
-                                <p className="w-25">
-                                  { product.price }
-                                  {' '}
-                                  { product.currency }
-                                </p>
-                                <p className="w-25">{ product.quantity }</p>
-                                <div className="w-25 d-flex justify-content-center">
-                                  <p className="mr-2">
-                                    { product.price * product.quantity }
-                                    {' '}
-                                    { product.currency }
-                                  </p>
-                                  <button type="button" onClick={() => removeFromCartInjected({ id: product.id })}>
-                                    <Close />
-                                  </button>
-                                </div>
-                              </div>
-                            ))
-                        }
-                          <div className="d-flex justify-content-end border-top">
-                            <div className="w-25 d-flex align-items-center justify-content-center">
-                              <Link to="/checkout">
-                                <button type="button" className="btn btn-dark">Plătește</button>
-                              </Link>
-                            </div>
-                            <div className="w-25">
-                              <p className="my-4 text-center text-bold">
-                                { totalSum(products) }
-                                {' '}
-                                { products[0].currency }
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                      : (
-                        <div className="d-flex flex-column align-items-center">
-                          <p className="h3">Nu ai produse în coș!</p>
-                          <Link to="/"><button type="submit" className="btn btn-outline-dark">Inapoi la home</button></Link>
-                        </div>
-                      )
-                }
+        {products.length ? (
+          <div className="w-100">
+            <div className="d-flex justify-content-between text-center h4 text-bold">
+              <p className="w-25">Produs</p>
+              <p className="w-25">Pret</p>
+              <p className="w-25">Cantitate</p>
+              <p className="w-25">Total</p>
+            </div>
+            {products.map((product) => (
+              <div
+                className="d-flex justify-content-between align-items-center text-center"
+                key={product.id}
+              >
+                <div className="w-25 d-flex flex-column justify-content-center align-items-center">
+                  <img src={product.image} alt="Produs" />
+                  <p>{product.name}</p>
+                </div>
+                <p className="w-25">
+                  {product.price} {product.currency}
+                </p>
+                <p className="w-25">{product.quantity}</p>
+                <div className="w-25 d-flex justify-content-center">
+                  <p className="mr-2">
+                    {product.price * product.quantity} {product.currency}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => removeFromCartInjected({ id: product.id })}
+                  >
+                    <Close />
+                  </button>
+                </div>
+              </div>
+            ))}
+            <div className="d-flex justify-content-end border-top">
+              <div className="w-25 d-flex align-items-center justify-content-center">
+                <Link to="/checkout">
+                  <button type="button" className="btn btn-dark">
+                    Plătește
+                  </button>
+                </Link>
+              </div>
+              <div className="w-25">
+                <p className="my-4 text-center text-bold">
+                  {totalSum(products)} {products[0].currency}
+                </p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="d-flex flex-column align-items-center">
+            <p className="h3">Nu ai produse în coș!</p>
+            <Link to="/">
+              <button type="submit" className="btn btn-outline-dark">
+                Inapoi la home
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </Layout>
   );

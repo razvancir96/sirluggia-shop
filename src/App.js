@@ -1,15 +1,15 @@
-import React from 'react';
-import './App.css';
-import { Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Login from './pages/Login';
-import Page404 from './pages/Page404';
-import Category from './pages/Category';
-import Cart from './pages/Cart';
-import './utils/utility-classes.css';
-import Checkout from './pages/Checkout';
-import Product from './pages/Product';
+import React from "react";
+import "./App.css";
+import { Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Page404 from "./pages/Page404";
+import Category from "./pages/Category";
+import Cart from "./pages/Cart";
+import "./utils/utility-classes.css";
+import Checkout from "./pages/Checkout";
+import Product from "./pages/Product";
 
 function App() {
   return (
