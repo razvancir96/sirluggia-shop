@@ -1,11 +1,11 @@
-import React from 'react';
-import './CheckoutForm.css';
+import React from "react";
+import "./CheckoutForm.css";
 import {
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
   injectStripe,
-} from 'react-stripe-elements';
+} from "react-stripe-elements";
 
 class CheckoutForm extends React.Component {
   constructor() {
@@ -21,11 +21,14 @@ class CheckoutForm extends React.Component {
     event.preventDefault();
 
     try {
-      stripe.confirmCardPayment('TODO: RECEIVE PAYMENT_INTENT_CLIENT_SECRET FROM SERVER', {
-        payment_method: {
-          card: elements.getElement('cardNumber'),
-        },
-      });
+      stripe.confirmCardPayment(
+        "TODO: RECEIVE PAYMENT_INTENT_CLIENT_SECRET FROM SERVER",
+        {
+          payment_method: {
+            card: elements.getElement("cardNumber"),
+          },
+        }
+      );
     } catch (error) {
       this.setState({ error });
     }
@@ -35,8 +38,13 @@ class CheckoutForm extends React.Component {
     const { error } = this.state;
 
     return (
-      <form onSubmit={(event) => this.handleFormSubmission(event)} className="checkout-form">
-        <p className="h4 font-weight-bold mb-5 text-center">Plătește cu cardul:</p>
+      <form
+        onSubmit={(event) => this.handleFormSubmission(event)}
+        className="checkout-form"
+      >
+        <p className="h4 font-weight-bold mb-5 text-center">
+          Plătește cu cardul:
+        </p>
         <div className="d-flex flex-column justify-content-center align-items-center">
           <div className="mb-3">
             <p className="mb-1">Număr card:</p>
@@ -52,15 +60,17 @@ class CheckoutForm extends React.Component {
           </div>
         </div>
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-dark">Plătește</button>
+          <button type="submit" className="btn btn-dark">
+            Plătește
+          </button>
         </div>
-        { error
-          ? (
-            <div>
-              <p className="text-danger text-center mt-3">Plata cu cardul este in probe. Puteți plăti cash la sediu.</p>
-            </div>
-          )
-          : null}
+        {error ? (
+          <div>
+            <p className="text-danger text-center mt-3">
+              Plata cu cardul este in probe. Puteți plăti cash la sediu.
+            </p>
+          </div>
+        ) : null}
       </form>
     );
   }

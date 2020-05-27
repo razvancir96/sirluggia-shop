@@ -1,8 +1,8 @@
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import cartReducer from './reducers/cart';
-import userReducer from './reducers/user';
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import cartReducer from "./reducers/cart";
+import userReducer from "./reducers/user";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
 });
 
 const middlewares = [thunk];
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
 }
 const store = createStore(rootReducer, applyMiddleware(...middlewares));

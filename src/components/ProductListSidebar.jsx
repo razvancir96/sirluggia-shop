@@ -1,5 +1,5 @@
-import React from 'react';
-import './ProductListSidebar.css';
+import React from "react";
+import "./ProductListSidebar.css";
 
 class ProductListSidebar extends React.Component {
   constructor(props) {
@@ -7,15 +7,15 @@ class ProductListSidebar extends React.Component {
     this.state = {
       filters: [
         {
-          name: 'filter1',
+          name: "filter1",
           checked: false,
         },
         {
-          name: 'filter2',
+          name: "filter2",
           checked: false,
         },
         {
-          name: 'filter3',
+          name: "filter3",
           checked: false,
         },
       ],
@@ -37,7 +37,8 @@ class ProductListSidebar extends React.Component {
           ...filter,
           checked: false,
         };
-      } if (filter.name === name) {
+      }
+      if (filter.name === name) {
         if (filter.checked) {
           return {
             ...filter,
@@ -76,7 +77,7 @@ class ProductListSidebar extends React.Component {
                 type="checkbox"
                 name="filter1"
                 className="mr-2"
-                checked={this.getCheckedValue('filter1')}
+                checked={this.getCheckedValue("filter1")}
                 onChange={(event) => this.changeProducts(event, 0, 100)}
               />
               &lt; 100 LEI
@@ -88,7 +89,7 @@ class ProductListSidebar extends React.Component {
                 type="checkbox"
                 name="filter2"
                 className="mr-2"
-                checked={this.getCheckedValue('filter2')}
+                checked={this.getCheckedValue("filter2")}
                 onChange={(event) => this.changeProducts(event, 100, 200)}
               />
               100 - 200 LEI
@@ -100,7 +101,7 @@ class ProductListSidebar extends React.Component {
                 type="checkbox"
                 name="filter3"
                 className="mr-2"
-                checked={this.getCheckedValue('filter3')}
+                checked={this.getCheckedValue("filter3")}
                 onChange={(event) => this.changeProducts(event, 200, Infinity)}
               />
               &gt; 200 LEI

@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import Logo from '../assets/images/logo.png';
-import { ReactComponent as ShoppingCart } from '../assets/icons/shopping-cart.svg';
-import './Header.css';
-import { logoutUser } from '../redux/actions/user';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import Logo from "../assets/images/logo.png";
+import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
+import "./Header.css";
+import { logoutUser } from "../redux/actions/user";
 
 const Header = ({ user, signOut, numberOfProducts }) => (
   <header className="border-bottom mb-3">
@@ -13,23 +13,30 @@ const Header = ({ user, signOut, numberOfProducts }) => (
         <img src={Logo} alt="Sirluggia Shop" className="logo" />
       </Link>
       <div>
-        { user && user.uid
-          ? (
-            <p>
-              Salut,
-              {user.displayName}
-              !
-            </p>
-          )
-          : null}
+        {user && user.uid ? (
+          <p>
+            Salut,
+            {user.displayName}!
+          </p>
+        ) : null}
         <div className="d-flex justify-content-end">
-          { user && user.uid
-            ? <button type="button" className="logout h5" onClick={() => signOut()}>Delogare</button>
-            : <Link to="/login" className="text-dark h5 mb-0">Logare</Link>}
+          {user && user.uid ? (
+            <button
+              type="button"
+              className="logout h5"
+              onClick={() => signOut()}
+            >
+              Delogare
+            </button>
+          ) : (
+            <Link to="/login" className="text-dark h5 mb-0">
+              Logare
+            </Link>
+          )}
           <div className="d-flex align-items-center">
             <Link to="/cart" className="d-flex">
               <ShoppingCart className="ml-2" />
-              <p className="ml-1 mb-0 text-dark">{ numberOfProducts }</p>
+              <p className="ml-1 mb-0 text-dark">{numberOfProducts}</p>
             </Link>
           </div>
         </div>
