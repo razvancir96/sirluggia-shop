@@ -1,4 +1,4 @@
-import cartReducer from "./cart";
+import cartReducer from "./cartReducer";
 
 const initialState = {
   products: [],

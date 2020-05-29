@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Logo from "../assets/images/logo.png";
 import { ReactComponent as Google } from "../assets/icons/google.svg";
 import "./Login.css";
-import { loginUser } from "../redux/actions/user";
+import { loginUser } from "../store/user/userActions";
 
 class Login extends React.Component {
   componentDidUpdate(prevProps) {

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Logo from "../assets/images/logo.png";
 import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
 import "./Header.css";
-import { logoutUser } from "../redux/actions/user";
+import { logoutUser } from "../store/user/userActions";
 
 const Header = ({ user, signOut, numberOfProducts }) => (
   <header className="border-bottom mb-3">
