@@ -88,3 +88,38 @@ describe("add to cart", () => {
     expect(stateTwo.products[1]).toEqual({ ...product2, quantity: 1 });
   });
 });
+
+describe("remove from cart", () => {
+  test("remove unexisting product", () => {
+    const removeProduct1 = {
+      type: actionTypes.removeFromCart,
+      payload: {
+        id: 1,
+      },
+    };
+
+    const state = cartReducer(initialState, removeProduct1);
+
+    expect(state).toEqual(initialState);
+  });
+
+  test("remove existing product", () => {
+    const addProduct1 = {
+      type: actionTypes.addToCart,
+      payload: {
+        product: product1,
+      },
+    };
+    const removeProduct1 = {
+      type: actionTypes.removeFromCart,
+      payload: {
+        id: 1,
+      },
+    };
+
+    const productOneAdded = cartReducer(initialState, addProduct1);
+    const productOneRemoved = cartReducer(productOneAdded, removeProduct1);
+
+    expect(productOneRemoved).toEqual(initialState);
+  });
+});
