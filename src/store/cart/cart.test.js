@@ -1,13 +1,8 @@
 import cartReducer from "./cartReducer";
+import { addToCart, removeFromCart } from "./cartActions";
 
 const initialState = {
   products: [],
-};
-
-const actionTypes = {
-  random: "random",
-  addToCart: "ADD_TO_CART",
-  removeFromCart: "REMOVE_FROM_CART",
 };
 
 const product1 = {
@@ -27,23 +22,14 @@ const product2 = {
 };
 
 describe("add to cart", () => {
-  test("first call with no valid action", () => {
-    const action = {
-      type: actionTypes.random,
-    };
-
-    const resultedState = cartReducer(undefined, action);
+  test("first call with no action", () => {
+    const resultedState = cartReducer();
 
     expect(resultedState).toEqual(initialState);
   });
 
   test("add product that is not in the cart", () => {
-    const action = {
-      type: actionTypes.addToCart,
-      payload: {
-        product: product1,
-      },
-    };
+    const action = addToCart({ product: product1 });
 
     const resultedState = cartReducer(initialState, action);
 
@@ -52,12 +38,7 @@ describe("add to cart", () => {
   });
 
   test("add the same product in cart twice", () => {
-    const addProduct1 = {
-      type: actionTypes.addToCart,
-      payload: {
-        product: product1,
-      },
-    };
+    const addProduct1 = addToCart({ product: product1 });
 
     const stateOne = cartReducer(initialState, addProduct1);
     const stateTwo = cartReducer(stateOne, addProduct1);
@@ -67,18 +48,8 @@ describe("add to cart", () => {
   });
 
   test("add multiple different products", () => {
-    const addProduct1 = {
-      type: actionTypes.addToCart,
-      payload: {
-        product: product1,
-      },
-    };
-    const addProduct2 = {
-      type: actionTypes.addToCart,
-      payload: {
-        product: product2,
-      },
-    };
+    const addProduct1 = addToCart({ product: product1 });
+    const addProduct2 = addToCart({ product: product2 });
 
     const stateOne = cartReducer(initialState, addProduct1);
     const stateTwo = cartReducer(stateOne, addProduct2);
@@ -91,12 +62,7 @@ describe("add to cart", () => {
 
 describe("remove from cart", () => {
   test("remove unexisting product", () => {
-    const removeProduct1 = {
-      type: actionTypes.removeFromCart,
-      payload: {
-        id: 1,
-      },
-    };
+    const removeProduct1 = removeFromCart({ id: 1 });
 
     const state = cartReducer(initialState, removeProduct1);
 
@@ -104,18 +70,8 @@ describe("remove from cart", () => {
   });
 
   test("remove existing product", () => {
-    const addProduct1 = {
-      type: actionTypes.addToCart,
-      payload: {
-        product: product1,
-      },
-    };
-    const removeProduct1 = {
-      type: actionTypes.removeFromCart,
-      payload: {
-        id: 1,
-      },
-    };
+    const addProduct1 = addToCart({ product: product1 });
+    const removeProduct1 = removeFromCart({ id: 1 });
 
     const productOneAdded = cartReducer(initialState, addProduct1);
     const productOneRemoved = cartReducer(productOneAdded, removeProduct1);
