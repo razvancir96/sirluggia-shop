@@ -2,7 +2,7 @@ const initialState = {
   products: [],
 };
 
-export default function cartReducer(state = initialState, action) {
+export default function cartReducer(state = initialState, action = {}) {
   switch (action.type) {
     case "ADD_TO_CART": {
       let productInCart = false;
