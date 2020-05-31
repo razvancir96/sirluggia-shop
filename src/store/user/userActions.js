@@ -1,26 +1,32 @@
 import { signInWithGoogle, signOut } from "../../apis/firebase/firebase";
 
-const startLoading = () => ({
-  type: "START_LOADING",
-});
+export function startLoading() {
+  return {
+    type: "START_LOADING",
+  };
+}
 
-const updateUserData = (payload) => ({
-  type: "UPDATE_USER_DATA",
-  data: payload,
-});
+export function updateUserData(payload) {
+  return {
+    type: "UPDATE_USER_DATA",
+    payload,
+  };
+}
 
-const updateUserError = (payload) => ({
-  type: "UPDATE_USER_ERROR",
-  error: payload,
-});
+export function updateUserError(payload) {
+  return {
+    type: "UPDATE_USER_ERROR",
+    payload,
+  };
+}
 
 export function loginUser() {
   return (dispatch) => {
     dispatch(startLoading());
 
     signInWithGoogle()
-      .then((user) => {
-        dispatch(updateUserData(user));
+      .then((userData) => {
+        dispatch(updateUserData(userData.user));
       })
       .catch((error) => {
         dispatch(updateUserError(error));
@@ -34,7 +40,7 @@ export function logoutUser() {
 
     signOut()
       .then(() => {
-        dispatch(updateUserData({}));
+        dispatch(updateUserData(null));
       })
       .catch((error) => {
         dispatch(updateUserError(error));
