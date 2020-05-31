@@ -11,7 +11,7 @@ const HomeCategory = (props) => {
           <img src={image} alt={name} className="w-100" />
         </div>
         <h2 className="h4 my-1">
-          <strong>{name}:</strong>
+          <strong>{name}</strong>
         </h2>
         <p className="m-0">{description}</p>
       </Link>
