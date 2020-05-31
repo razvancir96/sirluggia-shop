@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
 import "./Product.css";
-import { addToCart } from "../redux/actions/cart";
+import { addToCart } from "../store/cart/cartActions";
 
 class Product extends React.Component {
   constructor() {

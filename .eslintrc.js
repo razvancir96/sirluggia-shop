@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
   extends: [
     "plugin:react/recommended",
@@ -30,6 +31,8 @@ module.exports = {
     "react/jsx-indent-props": 0,
     "react/jsx-curly-newline": 0,
     "react/jsx-closing-bracket-location": 0,
-    "react/jsx-indent": 0
+    "react/jsx-indent": 0,
+    // remove annoying CR error(probably due to VSCode/Git)
+    "prettier/prettier": ["error", { "endOfLine":"auto"}],
   },
 };

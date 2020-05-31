@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Logo from "../assets/images/logo.png";
 import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
 import "./Header.css";
-import { logoutUser } from "../redux/actions/user";
+import { logoutUser } from "../store/user/userActions";
 
 const Header = ({ user, signOut, numberOfProducts }) => (
   <header className="border-bottom mb-3">
@@ -13,14 +13,14 @@ const Header = ({ user, signOut, numberOfProducts }) => (
         <img src={Logo} alt="Sirluggia Shop" className="logo" />
       </Link>
       <div>
-        {user && user.uid ? (
+        {user && (
           <p>
             Salut,
             {user.displayName}!
           </p>
-        ) : null}
+        )}
         <div className="d-flex justify-content-end">
-          {user && user.uid ? (
+          {user ? (
             <button
               type="button"
               className="logout h5"
@@ -48,7 +48,7 @@ const Header = ({ user, signOut, numberOfProducts }) => (
 function mapStateToProps(state) {
   return {
     numberOfProducts: state.cart.products.length,
-    user: state.user.data.user,
+    user: state.user.data,
   };
 }
 function mapDispatchToProps(dispatch) {

@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductItem.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToCart } from "../redux/actions/cart";
+import { addToCart } from "../store/cart/cartActions";
 
 const ProductItem = (props) => {
   const { name, price, currency, image, id } = props;
