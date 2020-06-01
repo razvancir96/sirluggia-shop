@@ -33,7 +33,10 @@ const Header = ({ user, signOut, numberOfProducts }) => (
               Logare
             </Link>
           )}
-          <div className="d-flex align-items-center">
+          <div
+            className="d-flex align-items-center"
+            data-testid="header-cart-section"
+          >
             <Link to="/cart" className="d-flex">
               <ShoppingCart className="ml-2" />
               <p className="ml-1 mb-0 text-dark">{numberOfProducts}</p>

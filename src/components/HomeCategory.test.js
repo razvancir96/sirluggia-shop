@@ -2,7 +2,7 @@ import React from "react";
 import { screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import HomeCategory from "./HomeCategory";
-import renderWithRouter from "../utils/test-utils";
+import { renderWithRouter } from "../utils/test-utils";
 
 const fakeProps = {
   route: "shoes",
@@ -12,7 +12,6 @@ const fakeProps = {
 };
 
 test("component information is displayed", () => {
-  // eslint-disable-next-line
   renderWithRouter(<HomeCategory {...fakeProps} />);
 
   expect(screen.getByAltText(fakeProps.name)).toBeTruthy();
@@ -24,7 +23,6 @@ describe("click on subcomponents redirects to corresponding route", () => {
   let history;
 
   beforeEach(() => {
-    // eslint-disable-next-line
     history = renderWithRouter(<HomeCategory {...fakeProps} />).history;
   });
 
