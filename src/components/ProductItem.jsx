@@ -13,9 +13,11 @@ const ProductItem = (props) => {
         to={`/product/${id}`}
         className="text-dark d-flex flex-column align-items-center"
       >
-        <img src={image} alt="productPhoto" className="mb-2" />
+        <img src={image} alt={name} className="mb-2" />
         <p className="mb-1 text-center">{name}</p>
-        <p className="text-center">{price + currency}</p>
+        <p className="text-center" data-testid="price-section">
+          {`${price} ${currency}`}
+        </p>
       </Link>
       <button
         type="button"
