@@ -34,5 +34,6 @@ module.exports = {
     "react/jsx-indent": 0,
     // remove annoying CR error(probably due to VSCode/Git)
     "prettier/prettier": ["error", { "endOfLine":"auto"}],
+    "react/jsx-props-no-spreading": 0
   },
 };
