@@ -7,6 +7,8 @@ import Layout from "../components/Layout";
 import { removeFromCart } from "../store/cart/cartActions";
 import { ReactComponent as CloseIcon } from "../assets/icons/close.svg";
 
+import Container from "../utils/style-utils";
+
 const Close = styled(CloseIcon)`
   cursor: pointer;
 `;
@@ -24,9 +26,9 @@ const Cart = ({ products, removeFromCartInjected }) => {
 
   return (
     <Layout>
-      <div
-        className="cart-page container-fluid container-min-max-width
-                d-flex flex-column justify-content-center align-items-center"
+      <Container
+        className="cart-page container-fluid d-flex flex-column justify-content-center
+        align-items-center"
       >
         {products.length ? (
           <div className="w-100">
@@ -87,7 +89,7 @@ const Cart = ({ products, removeFromCartInjected }) => {
             </Link>
           </div>
         )}
-      </div>
+      </Container>
     </Layout>
   );
 };

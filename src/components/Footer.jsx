@@ -7,6 +7,8 @@ import { ReactComponent as Mail } from "../assets/icons/mail.svg";
 import { ReactComponent as GitHub } from "../assets/icons/github.svg";
 import { ReactComponent as LinkedIn } from "../assets/icons/linkedin.svg";
 
+import Container from "../utils/style-utils";
+
 const StyledIcon = css`
   width: 24px;
   height: 24px;
@@ -28,9 +30,9 @@ const LinkedInIcon = styled(LinkedIn)`
   ${StyledIcon}
 `;
 
-const Container = styled.footer``;
+const FooterContainer = styled.footer``;
 
-const FooterLine = styled.div`
+const FooterLine = styled(Container)`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -51,8 +53,8 @@ const Copyright = styled.div`
 `;
 
 const Footer = () => (
-  <Container className="pt-3 mt-3 bg-light">
-    <FooterLine className="container-fluid container-min-max-width">
+  <FooterContainer className="pt-3 mt-3 bg-light">
+    <FooterLine className="container-fluid">
       <FooterGroup className="d-flex flex-column">
         <h3 className="h5">Link-uri rapide:</h3>
         <Link to="/about">Despre</Link>
@@ -89,7 +91,7 @@ const Footer = () => (
     </FooterLine>
 
     <Copyright className="py-3">&copy; Răzvan Cîrlugea, 2019</Copyright>
-  </Container>
+  </FooterContainer>
 );
 
 export default Footer;

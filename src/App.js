@@ -11,8 +11,6 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Product from "./pages/Product";
 
-import "./utils/utility-classes.css";
-
 const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;

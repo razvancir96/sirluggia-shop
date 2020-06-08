@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
 import ProductListSidebar from "../components/ProductListSidebar";
 import ProductList from "../components/ProductList";
+
+import Container from "../utils/style-utils";
 
 class Category extends Component {
   constructor(props) {
@@ -37,7 +40,7 @@ class Category extends Component {
 
     return (
       <Layout>
-        <div className="container-fluid container-min-max-width">
+        <Container className="container-fluid">
           <h2>{category.name}</h2>
           <div className="row">
             <ProductListSidebar
@@ -45,7 +48,7 @@ class Category extends Component {
             />
             <ProductList products={filteredItems} />
           </div>
-        </div>
+        </Container>
       </Layout>
     );
   }

@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
+
 import LogoSvg from "../assets/images/logo.png";
 import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
+
 import { logoutUser } from "../store/user/userActions";
+import Container from "../utils/style-utils";
 
 const Logo = styled.img`
   width: 150px;
@@ -17,7 +20,7 @@ const Logo = styled.img`
 
 const Header = ({ user, signOut, numberOfProducts }) => (
   <header className="border-bottom mb-3">
-    <div className="container-fluid container-min-max-width d-flex justify-content-between align-items-center">
+    <Container className="container-fluid d-flex justify-content-between align-items-center">
       <Link to="/" className="my-3">
         <Logo src={LogoSvg} alt="Sirluggia Shop" />
       </Link>
@@ -53,7 +56,7 @@ const Header = ({ user, signOut, numberOfProducts }) => (
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   </header>
 );
 

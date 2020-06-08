@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
 import HomeCategory from "../components/HomeCategory";
+import Container from "../utils/style-utils";
 
 class Home extends React.Component {
   constructor() {
@@ -21,7 +22,7 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        <div className="container-fluid container-min-max-width">
+        <Container className="container-fluid">
           <div className="row">
             {categories.map((category, index) => (
               <HomeCategory
@@ -34,7 +35,7 @@ class Home extends React.Component {
               />
             ))}
           </div>
-        </div>
+        </Container>
       </Layout>
     );
   }

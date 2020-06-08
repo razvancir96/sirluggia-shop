@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
 import { addToCart } from "../store/cart/cartActions";
+import Container from "../utils/style-utils";
 
 const ImageWrapper = styled.div`
   width: 400px;
@@ -67,7 +68,7 @@ class Product extends React.Component {
 
     return (
       <Layout>
-        <div className="product-page container-fluid container-min-max-width">
+        <Container className="product-page container-fluid">
           <h1 className="mt-3 mb-5 h2">{product.name}</h1>
           <ProductInfo className="d-flex">
             <ImageWrapper className="d-flex mr-5">
@@ -112,7 +113,7 @@ class Product extends React.Component {
               <p>{product.description}</p>
             </ProductDetails>
           </ProductInfo>
-        </div>
+        </Container>
       </Layout>
     );
   }

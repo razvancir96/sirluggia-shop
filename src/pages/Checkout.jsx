@@ -1,14 +1,16 @@
 import React from "react";
 import { StripeProvider, Elements } from "react-stripe-elements";
+
 import Layout from "../components/Layout";
 import CheckoutForm from "../components/CheckoutForm";
+import Container from "../utils/style-utils";
 
 const Checkout = () => (
   <StripeProvider apiKey="pk_test_qxuOUztDbFFABADsiHV1oXbi00vzVumGBX">
     <Layout>
-      <div
-        className="checkout-page container-fluid container-min-max-width 
-        d-flex justify-content-center align-items-center"
+      <Container
+        className="checkout-page container-fluid d-flex justify-content-center
+        align-items-center"
       >
         <Elements>
           <div className="d-flex flex-column">
@@ -19,7 +21,7 @@ const Checkout = () => (
             </p>
           </div>
         </Elements>
-      </div>
+      </Container>
     </Layout>
   </StripeProvider>
 );
