@@ -12,6 +12,9 @@ import Container from "../utils/style-utils";
 const StyledIcon = css`
   width: 24px;
   height: 24px;
+
+  margin-bottom: 0.25rem;
+  margin-right: 0.25rem;
 `;
 
 const PhoneIcon = styled(Phone)`
@@ -30,7 +33,9 @@ const LinkedInIcon = styled(LinkedIn)`
   ${StyledIcon}
 `;
 
-const FooterContainer = styled.footer``;
+const FooterContainer = styled.footer.attrs({
+  className: "pt-3 mt-3 bg-light",
+})``;
 
 const FooterLine = styled(Container)`
   display: flex;
@@ -42,55 +47,67 @@ const FooterLine = styled(Container)`
   }
 `;
 
-const FooterGroup = styled.div`
+const FooterGroup = styled.div.attrs({
+  className: "d-flex flex-column",
+})`
   @media (max-width: 768px) {
     margin-bottom: 1.5rem;
   }
 `;
 
-const Copyright = styled.div`
+const Title = styled.h3.attrs({
+  className: "h5",
+})``;
+
+const P = styled.p`
+  margin: 0;
+`;
+
+const Copyright = styled.div.attrs({
+  className: "py-3",
+})`
   text-align: center;
 `;
 
 const Footer = () => (
-  <FooterContainer className="pt-3 mt-3 bg-light">
-    <FooterLine className="container-fluid">
-      <FooterGroup className="d-flex flex-column">
-        <h3 className="h5">Link-uri rapide:</h3>
+  <FooterContainer>
+    <FooterLine>
+      <FooterGroup>
+        <Title>Link-uri rapide:</Title>
         <Link to="/about">Despre</Link>
         <Link to="/terms-and-conditions">Termeni și condiții</Link>
       </FooterGroup>
       <FooterGroup>
-        <h3 className="h5">Contactează-mă:</h3>
-        <p className="m-0">
+        <Title>Contactează-mă:</Title>
+        <P>
           <a href="mailto:razvan.cirlugea@gmail.com">
-            <MailIcon className="mr-1 mb-1 footer-icon" />
+            <MailIcon />
             razvan.cirlugea@gmail.com
           </a>
-        </p>
-        <p className="m-0">
-          <PhoneIcon className="mr-1 footer-icon" />
+        </P>
+        <P>
+          <PhoneIcon />
           +40728998166
-        </p>
+        </P>
       </FooterGroup>
       <FooterGroup>
-        <h3 className="h5">Contactează-mă:</h3>
-        <p className="m-0">
+        <Title>Contactează-mă:</Title>
+        <P>
           <a href="https://github.com/razvancir96">
-            <GitHubIcon className="mr-1 mb-1 footer-icon" />
+            <GitHubIcon />
             razvancir96
           </a>
-        </p>
-        <p className="m-0">
+        </P>
+        <P>
           <a href="https://www.linkedin.com/in/razvancirlugea/">
-            <LinkedInIcon className="mr-1 footer-icon" />
+            <LinkedInIcon />
             razvancirlugea
           </a>
-        </p>
+        </P>
       </FooterGroup>
     </FooterLine>
 
-    <Copyright className="py-3">&copy; Răzvan Cîrlugea, 2019</Copyright>
+    <Copyright>&copy; Răzvan Cîrlugea, 2019</Copyright>
   </FooterContainer>
 );
 
