@@ -7,7 +7,13 @@ import products from "../utils/products.json";
 import { addToCart } from "../store/cart/cartActions";
 import Container from "../utils/style-utils";
 
-const ImageWrapper = styled.div`
+const Title = styled.h1.attrs({
+  className: "mt-3 mb-5 h2",
+})``;
+
+const ImageWrapper = styled.div.attrs({
+  className: "d-flex mr-5",
+})`
   width: 400px;
   height: 400px;
   justify-content: center;
@@ -29,6 +35,8 @@ const Image = styled.img`
 `;
 
 const ProductInfo = styled.div`
+  display: flex;
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -39,6 +47,18 @@ const ProductDetails = styled.div`
     margin-top: 1.5rem;
   }
 `;
+
+const Price = styled.p.attrs({
+  className: "h3 text-danger",
+})``;
+
+const Button = styled.button.attrs({
+  className: "btn btn-dark mb-4 font-weight-bold",
+})``;
+
+const BoldText = styled.span.attrs({
+  className: "font-weight-bold",
+})``;
 
 class Product extends React.Component {
   constructor() {
@@ -68,19 +88,20 @@ class Product extends React.Component {
 
     return (
       <Layout>
-        <Container className="product-page container-fluid">
-          <h1 className="mt-3 mb-5 h2">{product.name}</h1>
-          <ProductInfo className="d-flex">
-            <ImageWrapper className="d-flex mr-5">
+        <Container>
+          <Title>{product.name}</Title>
+
+          <ProductInfo>
+            <ImageWrapper>
               <Image src={product.image} alt="Product presentation" />
             </ImageWrapper>
+
             <ProductDetails>
-              <p className="h3 text-danger">
+              <Price>
                 {product.price} {product.currency}
-              </p>
-              <button
+              </Price>
+              <Button
                 type="button"
-                className="btn btn-dark mb-4 font-weight-bold"
                 onClick={() => {
                   addToCartInjected({
                     product: {
@@ -94,23 +115,22 @@ class Product extends React.Component {
                 }}
               >
                 Adaugă în coș
-              </button>
+              </Button>
               <p>
-                <span className="font-weight-bold">Mărime</span>: {product.size}
+                <BoldText>Mărime</BoldText>: {product.size}
               </p>
               <p>
-                <span className="font-weight-bold">Culoare</span>:{" "}
-                {product.colour}
+                <BoldText>Culoare</BoldText>: {product.colour}
               </p>
               <p>
-                <span className="font-weight-bold">Material</span>:{" "}
-                {product.material}
+                <BoldText>Material</BoldText>: {product.material}
               </p>
               <p>
-                <span className="font-weight-bold">Brand</span>: {product.brand}
+                <BoldText>Brand</BoldText>: {product.brand}
               </p>
-              <p className="font-weight-bold mb-1">Descriere: </p>
-              <p>{product.description}</p>
+              <p>
+                <BoldText>Descriere</BoldText>: {product.description}
+              </p>
             </ProductDetails>
           </ProductInfo>
         </Container>
