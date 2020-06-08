@@ -1,10 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
 import Layout from "../components/Layout";
 import { removeFromCart } from "../store/cart/cartActions";
-import "./Cart.css";
-import { ReactComponent as Close } from "../assets/icons/close.svg";
+import { ReactComponent as CloseIcon } from "../assets/icons/close.svg";
+
+const Close = styled(CloseIcon)`
+  cursor: pointer;
+`;
+
+const ProductImage = styled.img`
+  max-height: 100px;
+`;
 
 const Cart = ({ products, removeFromCartInjected }) => {
   const totalSum = (productList) =>
@@ -33,7 +42,7 @@ const Cart = ({ products, removeFromCartInjected }) => {
                 key={product.id}
               >
                 <div className="w-25 d-flex flex-column justify-content-center align-items-center">
-                  <img src={product.image} alt="Produs" />
+                  <ProductImage src={product.image} alt="Produs" />
                   <p>{product.name}</p>
                 </div>
                 <p className="w-25">

@@ -1,16 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Logo from "../assets/images/logo.png";
+import styled from "styled-components";
+import LogoSvg from "../assets/images/logo.png";
 import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
-import "./Header.css";
 import { logoutUser } from "../store/user/userActions";
+
+const Logo = styled.img`
+  width: 150px;
+  height: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 const Header = ({ user, signOut, numberOfProducts }) => (
   <header className="border-bottom mb-3">
     <div className="container-fluid container-min-max-width d-flex justify-content-between align-items-center">
       <Link to="/" className="my-3">
-        <img src={Logo} alt="Sirluggia Shop" className="logo" />
+        <Logo src={LogoSvg} alt="Sirluggia Shop" />
       </Link>
       <div>
         {user && (

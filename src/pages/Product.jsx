@@ -1,9 +1,43 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
+
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
-import "./Product.css";
 import { addToCart } from "../store/cart/cartActions";
+
+const ImageWrapper = styled.div`
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    justify-content: start;
+  }
+`;
+
+const Image = styled.img`
+  height: 100%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const ProductInfo = styled.div`
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const ProductDetails = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+  }
+`;
 
 class Product extends React.Component {
   constructor() {
@@ -34,12 +68,12 @@ class Product extends React.Component {
     return (
       <Layout>
         <div className="product-page container-fluid container-min-max-width">
-          <h1 className="my-5 h2">{product.name}</h1>
-          <div className="product-info d-flex">
-            <div className="image-wrapper d-flex mr-5">
-              <img src={product.image} alt="Product presentation" />
-            </div>
-            <div className="product-details">
+          <h1 className="mt-3 mb-5 h2">{product.name}</h1>
+          <ProductInfo className="d-flex">
+            <ImageWrapper className="d-flex mr-5">
+              <Image src={product.image} alt="Product presentation" />
+            </ImageWrapper>
+            <ProductDetails>
               <p className="h3 text-danger">
                 {product.price} {product.currency}
               </p>
@@ -61,7 +95,7 @@ class Product extends React.Component {
                 Adaugă în coș
               </button>
               <p>
-                <span className="font-weight-bold">Mărime</span>:{product.size}
+                <span className="font-weight-bold">Mărime</span>: {product.size}
               </p>
               <p>
                 <span className="font-weight-bold">Culoare</span>:{" "}
@@ -72,12 +106,12 @@ class Product extends React.Component {
                 {product.material}
               </p>
               <p>
-                <span className="font-weight-bold">Brand</span>:{product.brand}
+                <span className="font-weight-bold">Brand</span>: {product.brand}
               </p>
-              <p className="font-weight-bold mb-1">Descriere:</p>
+              <p className="font-weight-bold mb-1">Descriere: </p>
               <p>{product.description}</p>
-            </div>
-          </div>
+            </ProductDetails>
+          </ProductInfo>
         </div>
       </Layout>
     );

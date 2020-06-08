@@ -1,5 +1,18 @@
 import React from "react";
-import "./ProductListSidebar.css";
+import styled from "styled-components";
+
+const FilterContainer = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+`;
+
+const Filter = styled.div`
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+  }
+`;
 
 class ProductListSidebar extends React.Component {
   constructor(props) {
@@ -70,8 +83,8 @@ class ProductListSidebar extends React.Component {
     return (
       <div className="col-12 col-md-3">
         <p>Filtrează după preț:</p>
-        <div className="filters-container">
-          <div className="filter">
+        <FilterContainer>
+          <Filter>
             <label htmlFor="filter1">
               <input
                 type="checkbox"
@@ -82,8 +95,8 @@ class ProductListSidebar extends React.Component {
               />
               &lt; 100 LEI
             </label>
-          </div>
-          <div className="filter">
+          </Filter>
+          <Filter>
             <label htmlFor="filter2">
               <input
                 type="checkbox"
@@ -94,8 +107,8 @@ class ProductListSidebar extends React.Component {
               />
               100 - 200 LEI
             </label>
-          </div>
-          <div className="filter">
+          </Filter>
+          <Filter>
             <label htmlFor="filter3">
               <input
                 type="checkbox"
@@ -106,8 +119,8 @@ class ProductListSidebar extends React.Component {
               />
               &gt; 200 LEI
             </label>
-          </div>
-        </div>
+          </Filter>
+        </FilterContainer>
       </div>
     );
   }

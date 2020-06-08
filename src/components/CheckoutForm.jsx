@@ -1,11 +1,37 @@
 import React from "react";
-import "./CheckoutForm.css";
+import styled, { css } from "styled-components";
+
 import {
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
   injectStripe,
 } from "react-stripe-elements";
+
+const StripeInput = css`
+  width: 300px;
+  height: 40px;
+  padding: 10px 12px;
+  color: #32325d;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  transition: box-shadow 150ms ease;
+`;
+
+const StyledCardNumberElement = styled(CardNumberElement)`
+  ${StripeInput}
+`;
+
+const StyledCardExpiryElement = styled(CardExpiryElement)`
+  ${StripeInput}
+`;
+
+const StyledCardCvcElement = styled(CardCvcElement)`
+  ${StripeInput}
+`;
 
 class CheckoutForm extends React.Component {
   constructor() {
@@ -48,15 +74,15 @@ class CheckoutForm extends React.Component {
         <div className="d-flex flex-column justify-content-center align-items-center">
           <div className="mb-3">
             <p className="mb-1">Număr card:</p>
-            <CardNumberElement className="card-number-element stripe-element" />
+            <StyledCardNumberElement className="card-number-element" />
           </div>
           <div className="mb-3">
             <p className="mb-1">Dată expirare:</p>
-            <CardExpiryElement className="card-expiry-element stripe-element" />
+            <StyledCardExpiryElement className="card-expiry-element" />
           </div>
           <div className="mb-3">
             <p className="mb-1">CVC:</p>
-            <CardCvcElement className="card-cvc-element stripe-element" />
+            <StyledCardCvcElement className="card-cvc-element" />
           </div>
         </div>
         <div className="d-flex justify-content-center">

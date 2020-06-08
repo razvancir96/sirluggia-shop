@@ -1,8 +1,14 @@
 import React from "react";
-import "./ProductItem.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
 import { addToCart } from "../store/cart/cartActions";
+
+const ProductImage = styled.img`
+  max-width: 250px;
+  max-height: 250px;
+`;
 
 const ProductItem = (props) => {
   const { name, price, currency, image, id } = props;
@@ -13,7 +19,7 @@ const ProductItem = (props) => {
         to={`/product/${id}`}
         className="d-flex flex-column align-items-center"
       >
-        <img src={image} alt={name} className="mb-2" />
+        <ProductImage src={image} alt={name} className="mb-2" />
         <p className="mb-1 text-center">{name}</p>
         <p className="text-center" data-testid="price-section">
           {`${price} ${currency}`}
