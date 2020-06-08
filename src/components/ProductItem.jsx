@@ -5,6 +5,10 @@ import styled from "styled-components";
 
 import { addToCart } from "../store/cart/cartActions";
 
+const Column = styled.div.attrs({
+  className: "col-12 col-md-4 mb-3 d-flex flex-column align-items-center",
+})``;
+
 const ProductImage = styled.img`
   max-width: 250px;
   max-height: 250px;
@@ -14,7 +18,7 @@ const ProductItem = (props) => {
   const { name, price, currency, image, id } = props;
 
   return (
-    <div className="product-item col-12 col-md-4 mb-3 d-flex flex-column align-items-center">
+    <Column>
       <Link
         to={`/product/${id}`}
         className="d-flex flex-column align-items-center"
@@ -42,7 +46,7 @@ const ProductItem = (props) => {
       >
         Adaugă în coș
       </button>
-    </div>
+    </Column>
   );
 };
 

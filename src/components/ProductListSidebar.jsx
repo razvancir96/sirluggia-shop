@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+const Column = styled.div.attrs({
+  className: "col-12 col-md-3",
+})``;
+
 const FilterContainer = styled.div`
   @media (max-width: 768px) {
     display: flex;
@@ -81,7 +85,7 @@ class ProductListSidebar extends React.Component {
 
   render() {
     return (
-      <div className="col-12 col-md-3">
+      <Column>
         <p>Filtrează după preț:</p>
         <FilterContainer>
           <Filter>
@@ -121,7 +125,7 @@ class ProductListSidebar extends React.Component {
             </label>
           </Filter>
         </FilterContainer>
-      </div>
+      </Column>
     );
   }
 }

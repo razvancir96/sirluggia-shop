@@ -8,10 +8,7 @@ import Container from "../utils/style-utils";
 const Checkout = () => (
   <StripeProvider apiKey="pk_test_qxuOUztDbFFABADsiHV1oXbi00vzVumGBX">
     <Layout>
-      <Container
-        className="checkout-page container-fluid d-flex justify-content-center
-        align-items-center"
-      >
+      <Container className="checkout-page d-flex justify-content-center align-items-center">
         <Elements>
           <div className="d-flex flex-column">
             <CheckoutForm />

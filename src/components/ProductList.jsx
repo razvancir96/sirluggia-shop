@@ -1,12 +1,22 @@
 import React from "react";
+import styled from "styled-components";
+
 import ProductItem from "./ProductItem";
+
+const Column = styled.div.attrs({
+  className: "col-12 col-md-9",
+})``;
+
+const Row = styled.div.attrs({
+  className: "row",
+})``;
 
 const ProductList = (props) => {
   const { products } = props;
 
   return (
-    <div className="col-12 col-md-9">
-      <div className="row">
+    <Column>
+      <Row>
         {products
           ? products.map((product) => (
               <ProductItem
@@ -19,8 +29,8 @@ const ProductList = (props) => {
               />
             ))
           : null}
-      </div>
-    </div>
+      </Row>
+    </Column>
   );
 };
 

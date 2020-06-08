@@ -1,11 +1,17 @@
 import React from "react";
+import styled from "styled-components";
+
 import { Link } from "react-router-dom";
+
+const Column = styled.div.attrs({
+  className: "col-12 col-md-6 my-3",
+})``;
 
 const HomeCategory = (props) => {
   const { route, name, description, image } = props;
 
   return (
-    <div className="col-12 col-md-6 my-3">
+    <Column>
       <Link to={`/category/${route}`}>
         <div className="w-100">
           <img src={image} alt={name} className="w-100" />
@@ -15,7 +21,7 @@ const HomeCategory = (props) => {
         </h2>
         <p className="m-0">{description}</p>
       </Link>
-    </div>
+    </Column>
   );
 };
 

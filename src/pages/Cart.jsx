@@ -27,7 +27,7 @@ const Cart = ({ products, removeFromCartInjected }) => {
   return (
     <Layout>
       <Container
-        className="cart-page container-fluid d-flex flex-column justify-content-center
+        className="cart-page d-flex flex-column justify-content-center
         align-items-center"
       >
         {products.length ? (

@@ -1,8 +1,14 @@
 import React from "react";
+import styled from "styled-components";
+
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
 import HomeCategory from "../components/HomeCategory";
 import Container from "../utils/style-utils";
+
+const Row = styled.div.attrs({
+  className: "row",
+})``;
 
 class Home extends React.Component {
   constructor() {
@@ -22,8 +28,8 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        <Container className="container-fluid">
-          <div className="row">
+        <Container>
+          <Row>
             {categories.map((category, index) => (
               <HomeCategory
                 // eslint-disable-next-line
@@ -34,7 +40,7 @@ class Home extends React.Component {
                 image={products[category].image}
               />
             ))}
-          </div>
+          </Row>
         </Container>
       </Layout>
     );

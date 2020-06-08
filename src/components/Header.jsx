@@ -20,7 +20,7 @@ const Logo = styled.img`
 
 const Header = ({ user, signOut, numberOfProducts }) => (
   <header className="border-bottom mb-3">
-    <Container className="container-fluid d-flex justify-content-between align-items-center">
+    <Container className="d-flex justify-content-between align-items-center">
       <Link to="/" className="my-3">
         <Logo src={LogoSvg} alt="Sirluggia Shop" />
       </Link>
