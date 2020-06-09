@@ -17,10 +17,24 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.img`
+const Logo = styled.img.attrs({
+  className: "mb-5",
+})`
   margin-top: 20vh;
   width: 200px;
 `;
+
+const Title = styled.h1.attrs({
+  className: "h2",
+})``;
+
+const Button = styled.button.attrs({
+  className: "btn btn-outline-dark d-flex align-items-center",
+})``;
+
+const GoogleIcon = styled(Google).attrs({
+  className: "mx-3",
+})``;
 
 class Login extends React.Component {
   componentDidUpdate(prevProps) {
@@ -37,20 +51,16 @@ class Login extends React.Component {
     return (
       <Container>
         <Link to="/">
-          <Logo src={LogoImg} alt="logo" className="mb-5" />
+          <Logo src={LogoImg} alt="logo" />
         </Link>
 
-        <h1 className="h2">Login</h1>
+        <Title>Login</Title>
         <p>Alege providerul cu care vrei să vrei să te loghezi:</p>
 
-        <button
-          type="button"
-          className="btn btn-outline-dark d-flex align-items-center"
-          onClick={() => signInWithGoogle()}
-        >
-          <Google className="w-50 mr-3" />
-          <span className="text-nowrap">Loghează-te cu Google</span>
-        </button>
+        <Button type="button" onClick={() => signInWithGoogle()}>
+          <GoogleIcon />
+          Loghează-te cu Google
+        </Button>
       </Container>
     );
   }
