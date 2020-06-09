@@ -1,5 +1,28 @@
 import React from "react";
-import "./ProductListSidebar.css";
+import styled from "styled-components";
+
+const Column = styled.div.attrs({
+  className: "col-12 col-md-3",
+})``;
+
+const FilterContainer = styled.div`
+  @media (max-width: 768px) {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+`;
+
+const Filter = styled.div`
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+  }
+`;
+
+const Label = styled.label``;
+
+const Input = styled.input.attrs({
+  className: "mr-2",
+})``;
 
 class ProductListSidebar extends React.Component {
   constructor(props) {
@@ -68,47 +91,44 @@ class ProductListSidebar extends React.Component {
 
   render() {
     return (
-      <div className="col-12 col-md-3">
+      <Column>
         <p>Filtrează după preț:</p>
-        <div className="filters-container">
-          <div className="filter">
-            <label htmlFor="filter1">
-              <input
+        <FilterContainer>
+          <Filter>
+            <Label htmlFor="filter1">
+              <Input
                 type="checkbox"
                 name="filter1"
-                className="mr-2"
                 checked={this.getCheckedValue("filter1")}
                 onChange={(event) => this.changeProducts(event, 0, 100)}
               />
               &lt; 100 LEI
-            </label>
-          </div>
-          <div className="filter">
-            <label htmlFor="filter2">
-              <input
+            </Label>
+          </Filter>
+          <Filter>
+            <Label htmlFor="filter2">
+              <Input
                 type="checkbox"
                 name="filter2"
-                className="mr-2"
                 checked={this.getCheckedValue("filter2")}
                 onChange={(event) => this.changeProducts(event, 100, 200)}
               />
               100 - 200 LEI
-            </label>
-          </div>
-          <div className="filter">
-            <label htmlFor="filter3">
-              <input
+            </Label>
+          </Filter>
+          <Filter>
+            <Label htmlFor="filter3">
+              <Input
                 type="checkbox"
                 name="filter3"
-                className="mr-2"
                 checked={this.getCheckedValue("filter3")}
                 onChange={(event) => this.changeProducts(event, 200, Infinity)}
               />
               &gt; 200 LEI
-            </label>
-          </div>
-        </div>
-      </div>
+            </Label>
+          </Filter>
+        </FilterContainer>
+      </Column>
     );
   }
 }

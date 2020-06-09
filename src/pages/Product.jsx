@@ -1,9 +1,64 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
+
 import Layout from "../components/Layout";
 import products from "../utils/products.json";
-import "./Product.css";
 import { addToCart } from "../store/cart/cartActions";
+import Container from "../utils/style-utils";
+
+const Title = styled.h1.attrs({
+  className: "mt-3 mb-5 h2",
+})``;
+
+const ImageWrapper = styled.div.attrs({
+  className: "d-flex mr-5",
+})`
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    justify-content: start;
+  }
+`;
+
+const Image = styled.img`
+  height: 100%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const ProductInfo = styled.div`
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const ProductDetails = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+  }
+`;
+
+const Price = styled.p.attrs({
+  className: "h3 text-danger",
+})``;
+
+const Button = styled.button.attrs({
+  className: "btn btn-dark mb-4 font-weight-bold",
+})``;
+
+const BoldText = styled.span.attrs({
+  className: "font-weight-bold",
+})``;
 
 class Product extends React.Component {
   constructor() {
@@ -33,19 +88,20 @@ class Product extends React.Component {
 
     return (
       <Layout>
-        <div className="product-page content-min-height container-fluid container-min-max-width">
-          <h1 className="my-5 h2">{product.name}</h1>
-          <div className="product-info d-flex">
-            <div className="image-wrapper d-flex mr-5">
-              <img src={product.image} alt="Product presentation" />
-            </div>
-            <div className="product-details">
-              <p className="h3 text-danger">
+        <Container>
+          <Title>{product.name}</Title>
+
+          <ProductInfo>
+            <ImageWrapper>
+              <Image src={product.image} alt="Product presentation" />
+            </ImageWrapper>
+
+            <ProductDetails>
+              <Price>
                 {product.price} {product.currency}
-              </p>
-              <button
+              </Price>
+              <Button
                 type="button"
-                className="btn btn-dark mb-4 font-weight-bold"
                 onClick={() => {
                   addToCartInjected({
                     product: {
@@ -59,26 +115,25 @@ class Product extends React.Component {
                 }}
               >
                 Adaugă în coș
-              </button>
+              </Button>
               <p>
-                <span className="font-weight-bold">Mărime</span>:{product.size}
+                <BoldText>Mărime</BoldText>: {product.size}
               </p>
               <p>
-                <span className="font-weight-bold">Culoare</span>:{" "}
-                {product.colour}
+                <BoldText>Culoare</BoldText>: {product.colour}
               </p>
               <p>
-                <span className="font-weight-bold">Material</span>:{" "}
-                {product.material}
+                <BoldText>Material</BoldText>: {product.material}
               </p>
               <p>
-                <span className="font-weight-bold">Brand</span>:{product.brand}
+                <BoldText>Brand</BoldText>: {product.brand}
               </p>
-              <p className="font-weight-bold mb-1">Descriere:</p>
-              <p>{product.description}</p>
-            </div>
-          </div>
-        </div>
+              <p>
+                <BoldText>Descriere</BoldText>: {product.description}
+              </p>
+            </ProductDetails>
+          </ProductInfo>
+        </Container>
       </Layout>
     );
   }

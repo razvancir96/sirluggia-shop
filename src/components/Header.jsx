@@ -1,51 +1,91 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Logo from "../assets/images/logo.png";
+import styled from "styled-components";
+
+import LogoSvg from "../assets/images/logo.png";
 import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.svg";
-import "./Header.css";
+
 import { logoutUser } from "../store/user/userActions";
+import Container from "../utils/style-utils";
+
+const StyledHeader = styled.header.attrs({
+  className: "border-bottom mb-3",
+})``;
+
+const ContentContainer = styled(Container).attrs({
+  className: "d-flex justify-content-between align-items-center",
+})``;
+
+const Logo = styled.img`
+  width: 150px;
+  height: auto;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const RightOptionsContainer = styled.div.attrs({
+  className: "d-flex justify-content-end",
+})``;
+
+const LogoLink = styled(Link).attrs({
+  className: "my-3",
+})``;
+
+const LogoutButton = styled.button.attrs({
+  className: "h5 btn",
+})`
+  font-weight: bold;
+`;
+
+const LoginLink = styled(Link).attrs({
+  className: "h5 mb-0",
+})``;
+
+const CartSection = styled.div.attrs({
+  className: "d-flex align-items-center",
+})``;
+
+const CartLink = styled(Link)`
+  display: flex;
+`;
+
+const ShoppingCartIcon = styled(ShoppingCart).attrs({
+  className: "ml-2",
+})``;
+
+const NumberOfProducts = styled.div.attrs({
+  className: "mb-0 ml-1",
+})``;
 
 const Header = ({ user, signOut, numberOfProducts }) => (
-  <header className="border-bottom mb-3">
-    <div className="container-fluid container-min-max-width d-flex justify-content-between align-items-center">
-      <Link to="/" className="my-3">
-        <img src={Logo} alt="Sirluggia Shop" className="logo" />
-      </Link>
+  <StyledHeader>
+    <ContentContainer>
+      <LogoLink to="/">
+        <Logo src={LogoSvg} alt="Sirluggia Shop" />
+      </LogoLink>
       <div>
-        {user && (
-          <p>
-            Salut,
-            {user.displayName}!
-          </p>
-        )}
-        <div className="d-flex justify-content-end">
+        {user && <p>Salut, {user.displayName}!</p>}
+        <RightOptionsContainer>
           {user ? (
-            <button
-              type="button"
-              className="logout h5"
-              onClick={() => signOut()}
-            >
+            <LogoutButton type="button" onClick={() => signOut()}>
               Delogare
-            </button>
+            </LogoutButton>
           ) : (
-            <Link to="/login" className="text-dark h5 mb-0">
-              Logare
-            </Link>
+            <LoginLink to="/login">Logare</LoginLink>
           )}
-          <div
-            className="d-flex align-items-center"
-            data-testid="header-cart-section"
-          >
-            <Link to="/cart" className="d-flex">
-              <ShoppingCart className="ml-2" />
-              <p className="ml-1 mb-0 text-dark">{numberOfProducts}</p>
-            </Link>
-          </div>
-        </div>
+          <CartSection data-testid="header-cart-section">
+            <CartLink to="/cart">
+              <ShoppingCartIcon />
+              <NumberOfProducts>{numberOfProducts}</NumberOfProducts>
+            </CartLink>
+          </CartSection>
+        </RightOptionsContainer>
       </div>
-    </div>
-  </header>
+    </ContentContainer>
+  </StyledHeader>
 );
 
 function mapStateToProps(state) {
@@ -54,6 +94,7 @@ function mapStateToProps(state) {
     user: state.user.data,
   };
 }
+
 function mapDispatchToProps(dispatch) {
   return {
     signOut: () => dispatch(logoutUser()),

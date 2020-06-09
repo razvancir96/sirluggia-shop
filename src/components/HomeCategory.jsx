@@ -1,21 +1,37 @@
 import React from "react";
+import styled from "styled-components";
+
 import { Link } from "react-router-dom";
+
+const Column = styled.div.attrs({
+  className: "col-12 col-md-6 my-3",
+})``;
+
+const Image = styled.img.attrs({
+  className: "w-100 d-block",
+})``;
+
+const Title = styled.h2.attrs({
+  className: "h4 my-1",
+})``;
+
+const Description = styled.p.attrs({
+  className: "m-0",
+})``;
 
 const HomeCategory = (props) => {
   const { route, name, description, image } = props;
 
   return (
-    <div className="col-12 col-md-6 my-3">
-      <Link to={`/category/${route}`} className="text-dark">
-        <div className="w-100">
-          <img src={image} alt={name} className="w-100" />
-        </div>
-        <h2 className="h4 my-1">
+    <Column>
+      <Link to={`/category/${route}`}>
+        <Image src={image} alt={name} />
+        <Title>
           <strong>{name}</strong>
-        </h2>
-        <p className="m-0">{description}</p>
+        </Title>
+        <Description>{description}</Description>
       </Link>
-    </div>
+    </Column>
   );
 };
 

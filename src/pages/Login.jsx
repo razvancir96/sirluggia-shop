@@ -1,10 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Logo from "../assets/images/logo.png";
+import styled from "styled-components";
+
+import LogoImg from "../assets/images/logo.png";
 import { ReactComponent as Google } from "../assets/icons/google.svg";
-import "./Login.css";
 import { loginUser } from "../store/user/userActions";
+
+const Container = styled.div`
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Logo = styled.img.attrs({
+  className: "mb-5",
+})`
+  margin-top: 20vh;
+  width: 200px;
+`;
+
+const Title = styled.h1.attrs({
+  className: "h2",
+})``;
+
+const Button = styled.button.attrs({
+  className: "btn btn-outline-dark d-flex align-items-center",
+})``;
+
+const GoogleIcon = styled(Google).attrs({
+  className: "mx-3",
+})``;
 
 class Login extends React.Component {
   componentDidUpdate(prevProps) {
@@ -19,23 +49,19 @@ class Login extends React.Component {
     const { signInWithGoogle } = this.props;
 
     return (
-      <div className="login-page">
+      <Container>
         <Link to="/">
-          <img src={Logo} alt="logo" className="mb-5" />
+          <Logo src={LogoImg} alt="logo" />
         </Link>
 
-        <h1 className="h2">Login</h1>
+        <Title>Login</Title>
         <p>Alege providerul cu care vrei să vrei să te loghezi:</p>
 
-        <button
-          type="button"
-          className="btn btn-outline-dark d-flex align-items-center"
-          onClick={() => signInWithGoogle()}
-        >
-          <Google className="w-50 mr-3" />
-          <span className="text-nowrap">Loghează-te cu Google</span>
-        </button>
-      </div>
+        <Button type="button" onClick={() => signInWithGoogle()}>
+          <GoogleIcon />
+          Loghează-te cu Google
+        </Button>
+      </Container>
     );
   }
 }
