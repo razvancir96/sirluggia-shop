@@ -18,6 +18,12 @@ const Filter = styled.div`
   }
 `;
 
+const Label = styled.label``;
+
+const Input = styled.input.attrs({
+  className: "mr-2",
+})``;
+
 class ProductListSidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -89,40 +95,37 @@ class ProductListSidebar extends React.Component {
         <p>Filtrează după preț:</p>
         <FilterContainer>
           <Filter>
-            <label htmlFor="filter1">
-              <input
+            <Label htmlFor="filter1">
+              <Input
                 type="checkbox"
                 name="filter1"
-                className="mr-2"
                 checked={this.getCheckedValue("filter1")}
                 onChange={(event) => this.changeProducts(event, 0, 100)}
               />
               &lt; 100 LEI
-            </label>
+            </Label>
           </Filter>
           <Filter>
-            <label htmlFor="filter2">
-              <input
+            <Label htmlFor="filter2">
+              <Input
                 type="checkbox"
                 name="filter2"
-                className="mr-2"
                 checked={this.getCheckedValue("filter2")}
                 onChange={(event) => this.changeProducts(event, 100, 200)}
               />
               100 - 200 LEI
-            </label>
+            </Label>
           </Filter>
           <Filter>
-            <label htmlFor="filter3">
-              <input
+            <Label htmlFor="filter3">
+              <Input
                 type="checkbox"
                 name="filter3"
-                className="mr-2"
                 checked={this.getCheckedValue("filter3")}
                 onChange={(event) => this.changeProducts(event, 200, Infinity)}
               />
               &gt; 200 LEI
-            </label>
+            </Label>
           </Filter>
         </FilterContainer>
       </Column>

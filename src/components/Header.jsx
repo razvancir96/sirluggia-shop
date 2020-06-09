@@ -30,7 +30,7 @@ const RightOptionsContainer = styled.div.attrs({
   className: "d-flex justify-content-end",
 })``;
 
-const LogoLink = styled.div.attrs({
+const LogoLink = styled(Link).attrs({
   className: "my-3",
 })``;
 

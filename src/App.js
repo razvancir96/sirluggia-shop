@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <GlobalStyles />
       <Switch>
         <Route path="/login" component={Login} />
