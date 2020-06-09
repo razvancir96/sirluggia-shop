@@ -9,6 +9,35 @@ import { ReactComponent as CloseIcon } from "../assets/icons/close.svg";
 
 import Container from "../utils/style-utils";
 
+const CartContainer = styled(Container).attrs({
+  className: "d-flex flex-column justify-content-center align-items-center",
+})``;
+
+const ContentContainer = styled.div.attrs({
+  className: "w-100",
+})``;
+
+const HeadContainer = styled.div.attrs({
+  className: "d-flex justify-content-between text-center h4 text-bold",
+})``;
+
+const RowContainer = styled.div.attrs({
+  className: "d-flex justify-content-between align-items-center text-center",
+})``;
+
+const Column = styled.div.attrs({
+  className: "w-25",
+})``;
+
+const ProductDetailsColumn = styled.div.attrs({
+  className:
+    "w-25 d-flex flex-column justify-content-center align-items-center",
+})``;
+
+const ProductPriceColumn = styled.div.attrs({
+  className: "w-25 d-flex justify-content-center",
+})``;
+
 const Close = styled(CloseIcon)`
   cursor: pointer;
 `;
@@ -16,6 +45,34 @@ const Close = styled(CloseIcon)`
 const ProductImage = styled.img`
   max-height: 100px;
 `;
+
+const Price = styled.p.attrs({
+  className: "mr-2",
+})``;
+
+const StyledLink = styled(Link).attrs({
+  className: "w-25 d-flex align-items-center justify-content-center",
+})``;
+
+const TotalSum = styled(Column).attrs({
+  className: "my-4 text-center text-bold",
+})``;
+
+const Button = styled.button.attrs((props) => ({
+  className: `btn btn-${props.variation}`,
+}))``;
+
+const PaymentContainer = styled.div.attrs({
+  className: "d-flex justify-content-end border-top",
+})``;
+
+const NoProductsContainer = styled.div.attrs({
+  className: "d-flex flex-column align-items-center",
+})``;
+
+const NoProductsMessage = styled.div.attrs({
+  className: "h3",
+})``;
 
 const Cart = ({ products, removeFromCartInjected }) => {
   const totalSum = (productList) =>
@@ -26,70 +83,61 @@ const Cart = ({ products, removeFromCartInjected }) => {
 
   return (
     <Layout>
-      <Container
-        className="cart-page d-flex flex-column justify-content-center
-        align-items-center"
-      >
+      <CartContainer>
         {products.length ? (
-          <div className="w-100">
-            <div className="d-flex justify-content-between text-center h4 text-bold">
-              <p className="w-25">Produs</p>
-              <p className="w-25">Pret</p>
-              <p className="w-25">Cantitate</p>
-              <p className="w-25">Total</p>
-            </div>
+          <ContentContainer>
+            <HeadContainer>
+              <Column>Produs</Column>
+              <Column>Pret</Column>
+              <Column>Cantitate</Column>
+              <Column>Total</Column>
+            </HeadContainer>
             {products.map((product) => (
-              <div
-                className="d-flex justify-content-between align-items-center text-center"
-                key={product.id}
-              >
-                <div className="w-25 d-flex flex-column justify-content-center align-items-center">
+              <RowContainer key={product.id}>
+                <ProductDetailsColumn>
                   <ProductImage src={product.image} alt="Produs" />
                   <p>{product.name}</p>
-                </div>
-                <p className="w-25">
+                </ProductDetailsColumn>
+                <Column>
                   {product.price} {product.currency}
-                </p>
-                <p className="w-25">{product.quantity}</p>
-                <div className="w-25 d-flex justify-content-center">
-                  <p className="mr-2">
+                </Column>
+                <Column>{product.quantity}</Column>
+                <ProductPriceColumn>
+                  <Price>
                     {product.price * product.quantity} {product.currency}
-                  </p>
+                  </Price>
                   <button
                     type="button"
                     onClick={() => removeFromCartInjected({ id: product.id })}
                   >
                     <Close />
                   </button>
-                </div>
-              </div>
+                </ProductPriceColumn>
+              </RowContainer>
             ))}
-            <div className="d-flex justify-content-end border-top">
-              <div className="w-25 d-flex align-items-center justify-content-center">
-                <Link to="/checkout">
-                  <button type="button" className="btn btn-dark">
-                    Plătește
-                  </button>
-                </Link>
-              </div>
-              <div className="w-25">
-                <p className="my-4 text-center text-bold">
-                  {totalSum(products)} {products[0].currency}
-                </p>
-              </div>
-            </div>
-          </div>
+            <PaymentContainer>
+              <StyledLink to="/checkout">
+                <Button type="button" variation="dark">
+                  Plătește
+                </Button>
+              </StyledLink>
+
+              <TotalSum>
+                {totalSum(products)} {products[0].currency}
+              </TotalSum>
+            </PaymentContainer>
+          </ContentContainer>
         ) : (
-          <div className="d-flex flex-column align-items-center">
-            <p className="h3">Nu ai produse în coș!</p>
+          <NoProductsContainer>
+            <NoProductsMessage>Nu ai produse în coș!</NoProductsMessage>
             <Link to="/">
-              <button type="submit" className="btn btn-outline-dark">
+              <Button type="submit" variation="outline-dark">
                 Inapoi la home
-              </button>
+              </Button>
             </Link>
-          </div>
+          </NoProductsContainer>
         )}
-      </Container>
+      </CartContainer>
     </Layout>
   );
 };
