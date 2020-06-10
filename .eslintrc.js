@@ -33,7 +33,9 @@ module.exports = {
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-indent": 0,
     // remove annoying CR error(probably due to VSCode/Git)
-    "prettier/prettier": ["error", { "endOfLine":"auto"}],
-    "react/jsx-props-no-spreading": 0
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
+    "react/jsx-props-no-spreading": 0,
+    // TODO: find a way to do this only for tests
+    "import/first": 0,
   },
 };

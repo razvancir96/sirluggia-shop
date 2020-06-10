@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-function App() {
+export function App() {
   return (
     <div>
       <GlobalStyles />
