@@ -61,7 +61,7 @@ const NumberOfProducts = styled.div.attrs({
 })``;
 
 const Header = ({ user, signOut, numberOfProducts }) => (
-  <StyledHeader>
+  <StyledHeader data-testid="header">
     <ContentContainer>
       <LogoLink to="/">
         <Logo src={LogoSvg} alt="Sirluggia Shop" />
