@@ -1,16 +1,12 @@
 export function signOut() {
-  return new Promise((resolve) => {
-    resolve();
-  });
+  return Promise.resolve();
 }
 
 export function signInWithGoogle() {
-  return new Promise((resolve) => {
-    resolve({
-      user: {
-        uid: "123",
-        displayName: "Julian",
-      },
-    });
+  return Promise.resolve({
+    user: {
+      uid: "123",
+      displayName: "Julian",
+    },
   });
 }
