@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
-import products from "../utils/products.json";
 import HomeCategory from "../components/HomeCategory";
 import Container from "../utils/style-utils";
+
+import { getCategoriesService } from "../services/categories";
 
 const Row = styled.div.attrs({
   className: "row",
@@ -19,8 +20,9 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    const categories = Object.keys(products);
-    this.setState({ categories });
+    getCategoriesService().then((categories) => {
+      this.setState({ categories });
+    });
   }
 
   render() {
@@ -34,10 +36,10 @@ class Home extends React.Component {
               <HomeCategory
                 // eslint-disable-next-line
                 key={index}
-                route={category}
-                name={products[category].name}
-                description={products[category].description}
-                image={products[category].image}
+                route={category.route}
+                name={category.name}
+                description={category.description}
+                image={category.image}
               />
             ))}
           </Row>
