@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
-import products from "../utils/products.json";
 import ProductListSidebar from "../components/ProductListSidebar";
 import ProductList from "../components/ProductList";
+
+import { getCategoryService } from "../services/categories";
 
 import Container from "../utils/style-utils";
 
@@ -25,10 +26,13 @@ class Category extends Component {
   componentDidMount() {
     const { match } = this.props;
     const { categoryName } = match.params;
-    this.setState({
-      category: products[categoryName],
-      items: products[categoryName].items,
-      filteredItems: products[categoryName].items,
+
+    getCategoryService(categoryName).then((category) => {
+      this.setState({
+        category,
+        items: category.items,
+        filteredItems: category.items,
+      });
     });
   }
 
