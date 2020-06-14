@@ -1,3 +1,5 @@
+// TODO: Move this to backend. Also move products.json.
+
 import { db } from "../apis/firebase/firebase";
 import json from "./products.json";
 
