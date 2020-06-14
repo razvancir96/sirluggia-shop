@@ -37,5 +37,6 @@ module.exports = {
     "react/jsx-props-no-spreading": 0,
     // TODO: find a way to do this only for tests
     "import/first": 0,
+    "import/prefer-default-export": 0,
   },
 };

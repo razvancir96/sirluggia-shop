@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import Layout from "../components/Layout";
-import products from "../utils/products.json";
 import { addToCart } from "../store/cart/cartActions";
 import Container from "../utils/style-utils";
+
+import { getProductService } from "../services/products";
 
 const Title = styled.h1.attrs({
   className: "mt-3 mb-5 h2",
@@ -71,15 +72,10 @@ class Product extends React.Component {
   componentDidMount() {
     const { match } = this.props;
     const { productId } = match.params;
-    const categoryValues = Object.values(products);
-    const productItems = categoryValues.reduce(
-      (acc, category) => [...acc, ...category.items],
-      []
-    );
-    const currentProduct = productItems.find(
-      (product) => Number(productId) === product.id
-    );
-    this.setState({ product: currentProduct });
+
+    getProductService(productId).then((currentProduct) => {
+      this.setState({ product: currentProduct });
+    });
   }
 
   render() {
