@@ -22,8 +22,8 @@ const product2 = {
 };
 
 describe("add to cart", () => {
-  test("first call with no action", () => {
-    const resultedState = cartReducer();
+  test("first call", () => {
+    const resultedState = cartReducer(undefined, {});
 
     expect(resultedState).toEqual(initialState);
   });
