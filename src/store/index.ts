@@ -9,6 +9,8 @@ const rootReducer = combineReducers({
   cart: cartReducer,
 });
 
+export type rootState = ReturnType<typeof rootReducer>;
+
 const middlewares = [thunk];
 if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
