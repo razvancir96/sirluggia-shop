@@ -1,10 +1,15 @@
-const initialState = {
+import { userState, userAction } from "./types";
+
+const initialState: userState = {
   data: null,
   loading: false,
   error: null,
 };
 
-export default function userReducer(state = initialState, action = {}) {
+export default function userReducer(
+  state = initialState,
+  action: userAction
+): userState {
   switch (action.type) {
     case "START_LOADING":
       return { ...state, loading: true };

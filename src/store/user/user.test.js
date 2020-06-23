@@ -16,8 +16,8 @@ const fakeError = {
   message: "Not good",
 };
 
-test("first reducer call, with no action", () => {
-  const state = userReducer();
+test("first reducer call", () => {
+  const state = userReducer(undefined, {});
 
   expect(state).toEqual(initialState);
 });
