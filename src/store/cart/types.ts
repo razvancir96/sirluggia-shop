@@ -6,7 +6,7 @@ interface productPayload {
   image: string;
 }
 export interface addToCartPayload {
-  product: productPayload
+  product: productPayload;
 }
 
 export interface removeFromCartPayload {
@@ -14,21 +14,21 @@ export interface removeFromCartPayload {
 }
 
 export interface addToCartAction {
-  type: 'ADD_TO_CART',
-  payload: addToCartPayload
+  type: "ADD_TO_CART";
+  payload: addToCartPayload;
 }
 
 export interface removeFromCartAction {
-  type: "REMOVE_FROM_CART",
-  payload: removeFromCartPayload
+  type: "REMOVE_FROM_CART";
+  payload: removeFromCartPayload;
 }
 
 interface product extends productPayload {
-  quantity: number
+  quantity: number;
 }
 
 export interface cartState {
-  products: product[]
+  products: product[];
 }
 
-export type cartAction = addToCartAction | removeFromCartAction
+export type cartAction = addToCartAction | removeFromCartAction;
