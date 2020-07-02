@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/sirluggia-shop/static/js/main.98f65b8d.chunk.js",
-    "main.js.map": "/sirluggia-shop/static/js/main.98f65b8d.chunk.js.map",
+    "main.js": "/sirluggia-shop/static/js/main.3b3a4715.chunk.js",
+    "main.js.map": "/sirluggia-shop/static/js/main.3b3a4715.chunk.js.map",
     "runtime-main.js": "/sirluggia-shop/static/js/runtime-main.4e6349a3.js",
     "runtime-main.js.map": "/sirluggia-shop/static/js/runtime-main.4e6349a3.js.map",
     "static/css/2.833dd627.chunk.css": "/sirluggia-shop/static/css/2.833dd627.chunk.css",
-    "static/js/2.85880005.chunk.js": "/sirluggia-shop/static/js/2.85880005.chunk.js",
-    "static/js/2.85880005.chunk.js.map": "/sirluggia-shop/static/js/2.85880005.chunk.js.map",
+    "static/js/2.69e258a1.chunk.js": "/sirluggia-shop/static/js/2.69e258a1.chunk.js",
+    "static/js/2.69e258a1.chunk.js.map": "/sirluggia-shop/static/js/2.69e258a1.chunk.js.map",
     "index.html": "/sirluggia-shop/index.html",
-    "precache-manifest.81368820ee4cec39bb962d24ba3610e7.js": "/sirluggia-shop/precache-manifest.81368820ee4cec39bb962d24ba3610e7.js",
+    "precache-manifest.9cdadb23c82a0b48bff9be54127bf62c.js": "/sirluggia-shop/precache-manifest.9cdadb23c82a0b48bff9be54127bf62c.js",
     "service-worker.js": "/sirluggia-shop/service-worker.js",
     "static/css/2.833dd627.chunk.css.map": "/sirluggia-shop/static/css/2.833dd627.chunk.css.map",
-    "static/js/2.85880005.chunk.js.LICENSE": "/sirluggia-shop/static/js/2.85880005.chunk.js.LICENSE",
+    "static/js/2.69e258a1.chunk.js.LICENSE": "/sirluggia-shop/static/js/2.69e258a1.chunk.js.LICENSE",
     "static/media/close.b41ee66a.svg": "/sirluggia-shop/static/media/close.b41ee66a.svg",
     "static/media/github.648cc3b4.svg": "/sirluggia-shop/static/media/github.648cc3b4.svg",
     "static/media/google.81ad048e.svg": "/sirluggia-shop/static/media/google.81ad048e.svg",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.4e6349a3.js",
     "static/css/2.833dd627.chunk.css",
-    "static/js/2.85880005.chunk.js",
-    "static/js/main.98f65b8d.chunk.js"
+    "static/js/2.69e258a1.chunk.js",
+    "static/js/main.3b3a4715.chunk.js"
   ]
 }
