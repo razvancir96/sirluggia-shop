@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "81317b1bf797da57d4442a6a33f50181",
+    "revision": "7d1dc40e695a92ee486808518ca56f37",
     "url": "/sirluggia-shop/index.html"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sirluggia-shop/static/js/2.69e258a1.chunk.js.LICENSE"
   },
   {
-    "revision": "5dc2df047c25632833cd",
-    "url": "/sirluggia-shop/static/js/main.3b3a4715.chunk.js"
+    "revision": "da507a9c162b72b1d450",
+    "url": "/sirluggia-shop/static/js/main.3b044104.chunk.js"
   },
   {
     "revision": "73dc859b254c311b013b",

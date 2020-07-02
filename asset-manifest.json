@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/sirluggia-shop/static/js/main.3b3a4715.chunk.js",
-    "main.js.map": "/sirluggia-shop/static/js/main.3b3a4715.chunk.js.map",
+    "main.js": "/sirluggia-shop/static/js/main.3b044104.chunk.js",
+    "main.js.map": "/sirluggia-shop/static/js/main.3b044104.chunk.js.map",
     "runtime-main.js": "/sirluggia-shop/static/js/runtime-main.4e6349a3.js",
     "runtime-main.js.map": "/sirluggia-shop/static/js/runtime-main.4e6349a3.js.map",
     "static/css/2.833dd627.chunk.css": "/sirluggia-shop/static/css/2.833dd627.chunk.css",
     "static/js/2.69e258a1.chunk.js": "/sirluggia-shop/static/js/2.69e258a1.chunk.js",
     "static/js/2.69e258a1.chunk.js.map": "/sirluggia-shop/static/js/2.69e258a1.chunk.js.map",
     "index.html": "/sirluggia-shop/index.html",
-    "precache-manifest.9cdadb23c82a0b48bff9be54127bf62c.js": "/sirluggia-shop/precache-manifest.9cdadb23c82a0b48bff9be54127bf62c.js",
+    "precache-manifest.697b2475f6ca5aee6a33e1aa415a5310.js": "/sirluggia-shop/precache-manifest.697b2475f6ca5aee6a33e1aa415a5310.js",
     "service-worker.js": "/sirluggia-shop/service-worker.js",
     "static/css/2.833dd627.chunk.css.map": "/sirluggia-shop/static/css/2.833dd627.chunk.css.map",
     "static/js/2.69e258a1.chunk.js.LICENSE": "/sirluggia-shop/static/js/2.69e258a1.chunk.js.LICENSE",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.4e6349a3.js",
     "static/css/2.833dd627.chunk.css",
     "static/js/2.69e258a1.chunk.js",
-    "static/js/main.3b3a4715.chunk.js"
+    "static/js/main.3b044104.chunk.js"
   ]
 }
