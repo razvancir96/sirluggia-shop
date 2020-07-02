@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.js": "/sirluggia-shop/static/js/main.98f65b8d.chunk.js",
+    "main.js.map": "/sirluggia-shop/static/js/main.98f65b8d.chunk.js.map",
+    "runtime-main.js": "/sirluggia-shop/static/js/runtime-main.4e6349a3.js",
+    "runtime-main.js.map": "/sirluggia-shop/static/js/runtime-main.4e6349a3.js.map",
+    "static/css/2.833dd627.chunk.css": "/sirluggia-shop/static/css/2.833dd627.chunk.css",
+    "static/js/2.85880005.chunk.js": "/sirluggia-shop/static/js/2.85880005.chunk.js",
+    "static/js/2.85880005.chunk.js.map": "/sirluggia-shop/static/js/2.85880005.chunk.js.map",
+    "index.html": "/sirluggia-shop/index.html",
+    "precache-manifest.81368820ee4cec39bb962d24ba3610e7.js": "/sirluggia-shop/precache-manifest.81368820ee4cec39bb962d24ba3610e7.js",
+    "service-worker.js": "/sirluggia-shop/service-worker.js",
+    "static/css/2.833dd627.chunk.css.map": "/sirluggia-shop/static/css/2.833dd627.chunk.css.map",
+    "static/js/2.85880005.chunk.js.LICENSE": "/sirluggia-shop/static/js/2.85880005.chunk.js.LICENSE",
+    "static/media/close.b41ee66a.svg": "/sirluggia-shop/static/media/close.b41ee66a.svg",
+    "static/media/github.648cc3b4.svg": "/sirluggia-shop/static/media/github.648cc3b4.svg",
+    "static/media/google.81ad048e.svg": "/sirluggia-shop/static/media/google.81ad048e.svg",
+    "static/media/linkedin.173ca344.svg": "/sirluggia-shop/static/media/linkedin.173ca344.svg",
+    "static/media/logo.png": "/sirluggia-shop/static/media/logo.3c74bf24.png",
+    "static/media/mail.c4d17416.svg": "/sirluggia-shop/static/media/mail.c4d17416.svg",
+    "static/media/phone.802cd03a.svg": "/sirluggia-shop/static/media/phone.802cd03a.svg",
+    "static/media/shopping-cart.4eb6a930.svg": "/sirluggia-shop/static/media/shopping-cart.4eb6a930.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e6349a3.js",
+    "static/css/2.833dd627.chunk.css",
+    "static/js/2.85880005.chunk.js",
+    "static/js/main.98f65b8d.chunk.js"
+  ]
+}
