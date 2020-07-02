@@ -1,4 +1,5 @@
 jest.mock("../apis/firebase/firebase");
+jest.mock("../services/categories");
 
 import React from "react";
 import { screen, fireEvent, waitFor } from "@testing-library/react";
