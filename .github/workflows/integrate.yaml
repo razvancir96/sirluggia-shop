@@ -1,4 +1,4 @@
-name: CI/CD
+name: Continuous Integration
 
 on:
   pull_request:
@@ -6,12 +6,12 @@ on:
 
 jobs:
   test_pull_request:
-    runs_on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with: 
-          node-version: 10
+          node-version: 12
       - run: npm ci
       - run: npm run lint
       - run: npm test
