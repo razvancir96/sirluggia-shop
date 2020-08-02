@@ -69,7 +69,7 @@ const Copyright = styled.div.attrs({
   text-align: center;
 `;
 
-const Footer: React.FC<null> = () => (
+const Footer: React.FC<unknown> = () => (
   <FooterContainer>
     <FooterLine>
       <FooterGroup>
