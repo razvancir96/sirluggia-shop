@@ -1,8 +1,8 @@
 interface productPayload {
-  id: number;
+  id: string;
   name: string;
   price: number;
-  currency: string;
+  currency: number;
   image: string;
 }
 export interface addToCartPayload {
@@ -10,7 +10,7 @@ export interface addToCartPayload {
 }
 
 export interface removeFromCartPayload {
-  id: number;
+  id: string;
 }
 
 export interface addToCartAction {
