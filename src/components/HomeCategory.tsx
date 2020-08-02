@@ -19,7 +19,14 @@ const Description = styled.p.attrs({
   className: "m-0",
 })``;
 
-const HomeCategory = (props) => {
+type Props = {
+  route: string;
+  name: string;
+  description: string;
+  image: string;
+};
+
+const HomeCategory: React.FC<Props> = (props) => {
   const { route, name, description, image } = props;
 
   return (

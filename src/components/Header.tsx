@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import styled from "styled-components";
 
 import LogoSvg from "../assets/images/logo.png";
@@ -8,6 +8,7 @@ import { ReactComponent as ShoppingCart } from "../assets/icons/shopping-cart.sv
 
 import { logoutUser } from "../store/user/userActions";
 import Container from "../utils/style-utils";
+import { rootState } from "../store";
 
 const StyledHeader = styled.header.attrs({
   className: "border-bottom mb-3",
@@ -60,7 +61,25 @@ const NumberOfProducts = styled.div.attrs({
   className: "mb-0 ml-1",
 })``;
 
-const Header = ({ user, signOut, numberOfProducts }) => (
+function mapStateToProps(state: rootState) {
+  return {
+    numberOfProducts: state.cart.products.length,
+    user: state.user.data,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    signOut: () => dispatch(logoutUser()),
+  };
+}
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux;
+
+const Header: React.FC<Props> = ({ user, signOut, numberOfProducts }) => (
   <StyledHeader data-testid="header">
     <ContentContainer>
       <LogoLink to="/">
@@ -88,17 +107,4 @@ const Header = ({ user, signOut, numberOfProducts }) => (
   </StyledHeader>
 );
 
-function mapStateToProps(state) {
-  return {
-    numberOfProducts: state.cart.products.length,
-    user: state.user.data,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    signOut: () => dispatch(logoutUser()),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connector(Header);
