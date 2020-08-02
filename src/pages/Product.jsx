@@ -80,7 +80,7 @@ class Product extends React.Component {
 
   render() {
     const { product } = this.state;
-    const { addToCartInjected } = this.props;
+    const { addToCartConnect } = this.props;
 
     return (
       <Layout>
@@ -99,7 +99,7 @@ class Product extends React.Component {
               <Button
                 type="button"
                 onClick={() => {
-                  addToCartInjected({
+                  addToCartConnect({
                     product: {
                       id: product.id,
                       name: product.name,
@@ -137,7 +137,7 @@ class Product extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToCartInjected: (payload) => dispatch(addToCart(payload)),
+    addToCartConnect: (payload) => dispatch(addToCart(payload)),
   };
 }
 

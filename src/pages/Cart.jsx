@@ -74,7 +74,7 @@ const NoProductsMessage = styled.div.attrs({
   className: "h3",
 })``;
 
-const Cart = ({ products, removeFromCartInjected }) => {
+const Cart = ({ products, removeFromCartConnect }) => {
   const totalSum = (productList) =>
     productList.reduce(
       (acc, product) => acc + product.quantity * product.price,
@@ -108,7 +108,7 @@ const Cart = ({ products, removeFromCartInjected }) => {
                   </Price>
                   <button
                     type="button"
-                    onClick={() => removeFromCartInjected({ id: product.id })}
+                    onClick={() => removeFromCartConnect({ id: product.id })}
                   >
                     <Close />
                   </button>
@@ -150,7 +150,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    removeFromCartInjected: (payload) => dispatch(removeFromCart(payload)),
+    removeFromCartConnect: (payload) => dispatch(removeFromCart(payload)),
   };
 }
 
