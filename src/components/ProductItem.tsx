@@ -1,9 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { addToCart } from "../store/cart/cartActions";
+import { addToCartPayload } from "../store/cart/types";
 
 const Column = styled.div.attrs({
   className: "col-12 col-md-4 mb-3 d-flex flex-column align-items-center",
@@ -32,8 +33,26 @@ const Button = styled.button.attrs({
   className: "btn btn-outline-dark",
 })``;
 
-const ProductItem = (props) => {
-  const { name, price, currency, image, id } = props;
+type ComponentProps = {
+  name: string;
+  price: number;
+  currency: number;
+  image: string;
+  id: string;
+};
+
+const mapDispatchToProps = {
+  addToCartConnect: (product: addToCartPayload) => addToCart(product),
+};
+
+const connector = connect(null, mapDispatchToProps);
+
+type ReduxProps = ConnectedProps<typeof connector>;
+
+type Props = ComponentProps & ReduxProps;
+
+const ProductItem: React.FC<Props> = (props) => {
+  const { name, price, currency, image, id, addToCartConnect } = props;
 
   return (
     <Column>
@@ -45,7 +64,7 @@ const ProductItem = (props) => {
       <Button
         type="button"
         onClick={() =>
-          props.addToCart({
+          addToCartConnect({
             product: {
               id,
               name,
@@ -62,10 +81,4 @@ const ProductItem = (props) => {
   );
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addToCart: (product) => dispatch(addToCart(product)),
-  };
-}
-
-export default connect(null, mapDispatchToProps)(ProductItem);
+export default connector(ProductItem);
