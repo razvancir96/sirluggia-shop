@@ -14,7 +14,7 @@ const Page = styled.div`
   }
 `;
 
-const Layout = (props) => {
+const Layout: React.FC<unknown> = (props) => {
   const { children } = props;
 
   return (
