@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 import { addToCart } from "../store/cart/cartActions";
 import { addToCartPayload } from "../store/cart/types";
+import { ProductType } from "./ProductList";
 
 const Column = styled.div.attrs({
   className: "col-12 col-md-4 mb-3 d-flex flex-column align-items-center",
@@ -33,13 +34,7 @@ const Button = styled.button.attrs({
   className: "btn btn-outline-dark",
 })``;
 
-type ComponentProps = {
-  name: string;
-  price: number;
-  currency: number;
-  image: string;
-  id: string;
-};
+type ComponentProps = ProductType;
 
 const mapDispatchToProps = {
   addToCartConnect: (product: addToCartPayload) => addToCart(product),
