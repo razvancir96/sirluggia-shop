@@ -79,7 +79,7 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 type PropsFromRedux = ConnectedProps<typeof connector>;
 type Props = PropsFromRedux;
 
-const Header = ({ user, signOut, numberOfProducts }: Props) => (
+const Header: React.FC<Props> = ({ user, signOut, numberOfProducts }) => (
   <StyledHeader data-testid="header">
     <ContentContainer>
       <LogoLink to="/">
