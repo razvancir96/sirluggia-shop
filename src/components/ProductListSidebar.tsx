@@ -24,8 +24,19 @@ const Input = styled.input.attrs({
   className: "mr-2",
 })``;
 
-class ProductListSidebar extends React.Component {
-  constructor(props) {
+type Props = {
+  filterProducts: (lowerLimit: number, upperLimit: number) => void;
+};
+
+type State = {
+  filters: {
+    name: string;
+    checked: boolean;
+  }[];
+};
+
+class ProductListSidebar extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       filters: [
@@ -45,14 +56,14 @@ class ProductListSidebar extends React.Component {
     };
   }
 
-  getCheckedValue(name) {
+  getCheckedValue(name: string): boolean {
     const { filters } = this.state;
 
     const selectedFilter = filters.find((filter) => filter.name === name);
     return selectedFilter.checked;
   }
 
-  handleCheckboxUiChange(name) {
+  handleCheckboxUiChange(name: string): void {
     const { filters } = this.state;
     const modifiedFilters = filters.map((filter) => {
       if (filter.name !== name && filter.checked) {
@@ -78,18 +89,23 @@ class ProductListSidebar extends React.Component {
     this.setState({ filters: modifiedFilters });
   }
 
-  changeProducts(event, lowerLimit, upperLimit) {
+  changeProducts(
+    event: React.MouseEvent<HTMLButtonElement>,
+    lowerLimit: number,
+    upperLimit: number
+  ): void {
     const { filterProducts } = this.props;
+    const target = event.target as HTMLInputElement;
 
-    if (event.target.checked) {
+    if (target.checked) {
       filterProducts(lowerLimit, upperLimit);
     } else {
       filterProducts(0, Infinity);
     }
-    this.handleCheckboxUiChange(event.target.name);
+    this.handleCheckboxUiChange(target.name);
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <Column>
         <p>Filtrează după preț:</p>
