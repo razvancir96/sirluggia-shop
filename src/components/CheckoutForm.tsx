@@ -6,6 +6,7 @@ import {
   CardExpiryElement,
   CardCvcElement,
   injectStripe,
+  ReactStripeElements,
 } from "react-stripe-elements";
 
 const StripeInput = css`
@@ -61,9 +62,17 @@ const ErrorMessage = styled.p.attrs({
   className: "text-danger text-center mt-3",
 })``;
 
-class CheckoutForm extends React.Component {
-  constructor() {
-    super();
+type StripeProps = ReactStripeElements.StripeProps;
+
+type Props = StripeProps;
+
+type State = {
+  error: string;
+};
+
+class CheckoutForm extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
     this.state = {
       error: null,
     };
@@ -84,7 +93,7 @@ class CheckoutForm extends React.Component {
         }
       );
     } catch (error) {
-      this.setState({ error });
+      this.setState({ error: "Could not proceed payment" });
     }
   }
 
